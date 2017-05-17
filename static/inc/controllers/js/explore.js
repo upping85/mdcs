@@ -1342,7 +1342,8 @@ load_start_form = function(listId, remote_instance_selected){
         dataType: "json",
         data : {
             listId : listId,
-            remote_instance_selected: remote_instance_selected
+            remote_instance_selected: remote_instance_selected,
+            explore_type: $('#explore-type').attr('value')
         },
         success: function(data){
             $("#form_start_errors").html("");

@@ -92,45 +92,46 @@
 {% endblock %}
 
 {% block content %}
-<div id="search">
-		<div class="toolbar" style="display: block;">
-			<div class="alert alert-warning" id="banner_results_wait" style="display: none;">
-		 		<h4><i class='fa fa-circle-o-notch fa-spin fa-2x'></i>  </i>&nbsp;&nbsp;Please wait...</h4>
-    		</div>
-			<div class="alert alert-error" id="banner_errors" style="display: none;">
-				<a href="#" class="close" data-hide="alert" aria-label="close">&times;</a>
-				<h4><i class="fa fa-exclamation-circle fa-1x"></i> Error</h4>
-				<div id="btn_errors">
-				</div>
-			</div>
-			<div class="alert alert-info" id="banner_results_errors" style="display: none;">
-				<h4>
-					<a href="#" class="close" data-hide="alert" aria-label="close">&times;</a>
-					<p id="results_errors">
-					</p>
-				</h4>
-			</div>
-			<div class="btn-group pull-right">
-				<span class="btn" onclick="exportRes();"><i class="icon-arrow-down"></i> Export</span>
-			</div>
-			<br/><br/>
-		</div>
-        <div id="searchContainer">
-			<div class="loading" id="loading"></div>
-			<input id="submit" name="submit" type="button" onclick="get_results_keyword()" value="Search" />
-			<div>
-				{{search_Form.search_entry}}
-			</div>
-        </div>
-        <div id="form_result_start_current"></div>
-</div>
-<div id="results_infos" style="color:grey;float:left"></div>
-<div id="results_select" style="color:grey;display: none">
-	&nbsp; (<input id="select_all" name="select_all" class="cmn-toggle cmn-toggle-round3" type="checkbox" />
-	<label for="select_all"></label> &nbsp;Select/Unselect all)
-</div>
-<div class="clearer">&nbsp;</div>
-<div id="results"></div>
+    <div id="search">
+            <div class="toolbar" style="display: block;">
+                <div class="alert alert-warning" id="banner_results_wait" style="display: none;">
+                    <h4><i class='fa fa-circle-o-notch fa-spin fa-2x'></i>  </i>&nbsp;&nbsp;Please wait...</h4>
+                </div>
+                <div class="alert alert-error" id="banner_errors" style="display: none;">
+                    <a href="#" class="close" data-hide="alert" aria-label="close">&times;</a>
+                    <h4><i class="fa fa-exclamation-circle fa-1x"></i> Error</h4>
+                    <div id="btn_errors">
+                    </div>
+                </div>
+                <div class="alert alert-info" id="banner_results_errors" style="display: none;">
+                    <h4>
+                        <a href="#" class="close" data-hide="alert" aria-label="close">&times;</a>
+                        <p id="results_errors">
+                        </p>
+                    </h4>
+                </div>
+                <div class="btn-group pull-right">
+                    <span class="btn" onclick="exportRes();"><i class="icon-arrow-down"></i> Download</span>
+                </div>
+                <br/><br/>
+            </div>
+            <div id="searchContainer">
+                <div class="loading" id="loading"></div>
+                <input id="submit" name="submit" type="button" onclick="get_results_keyword()" value="Search" />
+                <div>
+                    {{search_Form.search_entry}}
+                </div>
+            </div>
+            <div id="form_result_start_current"></div>
+    </div>
+    <div id="results_infos" style="color:grey;float:left"></div>
+    <div id="results_select" style="color:grey;display: none">
+        &nbsp; (<input id="select_all" name="select_all" class="cmn-toggle cmn-toggle-round3" type="checkbox" />
+        <label for="select_all"></label> &nbsp;Select/Unselect all)
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <div id="results"></div>
+    <div id="explore-type" value="keyword" style="display: none;"></div>
 {% endblock %}
 
 {% block popups %}

@@ -472,8 +472,14 @@ def start_export(request):
         remote_instance_selected = json.loads(request.GET['remote_instance_selected'])
         request.session['listIdToExport'] = listId
 
+        explore_type = request.GET.get('explore_type', None)
+
         # Get all schemaId from the listId
-        listSchemas = [request.session['exploreCurrentTemplateID']]
+        if explore_type == u'example':
+            listSchemas = [request.session['exploreCurrentTemplateID']]
+        else:
+            listSchemas = XMLdata.getByIDsAndDistinctBy(listId, "schema")
+
         export_form = ExportForm(listSchemas)
 
         upload_xslt_Form = UploadXSLTForm(listSchemas)
