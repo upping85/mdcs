@@ -55,6 +55,7 @@ automatically load the appropriate form and display it on the next page.
 
 {% block content %}
 <div id="template_selection">
+    {% csrf_token %}
     {% if request.session.exploreCurrentTemplateID %}
 
     {% else %}

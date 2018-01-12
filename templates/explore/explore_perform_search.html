@@ -79,6 +79,8 @@
 	        </p>
 			{% if user|has_perm:'explore.explore_save_query' %}
 	        <span class="btn" onclick="saveQuery()">Save Query</span>
+            {% else %}
+            <span class="btn hidden" onclick="saveQuery()">Save Query</span>
 			{%endif%}
 	        <span class="btn" onclick="clearCriterias()">Clear</span>    
 	        <span class="btn" onclick="query()">Submit Query</span>  

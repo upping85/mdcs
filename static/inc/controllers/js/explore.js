@@ -1337,12 +1337,11 @@ displayExportSelectedDialog = function(listId, remote_instance_selected)
 
 load_start_form = function(listId, remote_instance_selected){
 	$.ajax({
-        url : "/explore/start_export",
-        type : "GET",
+        url : "/explore/display_export_form",
+        type : "POST",
         dataType: "json",
         data : {
             listId : listId,
-            remote_instance_selected: remote_instance_selected,
             explore_type: $('#explore-type').attr('value')
         },
         success: function(data){

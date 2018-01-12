@@ -47,7 +47,7 @@ class XSLTExporter(Exporter):
         self.extension = "xml"
 
         xsltParsed = etree.parse(BytesIO(xslt.encode('utf-8')))
-        #We define the extension
+        #We define the extensio n
         try:
             method = xsltParsed.find("//xsl:output",namespaces={'xsl': 'http://www.w3.org/1999/XSL/Transform'}).attrib['method']
             self.extension = ".{!s}".format(method)

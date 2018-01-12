@@ -466,13 +466,16 @@ def start_export(request):
         request.session['listIdToExport'] = ''
 
         return response
-    else:
+
+
+@permission_required(content_type=RIGHTS.explore_content_type, permission=RIGHTS.explore_access, login_url='/login')
+def display_export_form(request):
+    if request.method == 'POST':
         # We retrieve the result_id for each file the user wants to export
-        listId = request.GET.getlist('listId[]')
-        remote_instance_selected = json.loads(request.GET['remote_instance_selected'])
+        listId = request.POST.getlist('listId[]')
         request.session['listIdToExport'] = listId
 
-        explore_type = request.GET.get('explore_type', None)
+        explore_type = request.POST.get('explore_type', None)
 
         # Get all schemaId from the listId
         if explore_type == u'example':
@@ -488,5 +491,4 @@ def start_export(request):
                            'upload_xslt_Form': upload_xslt_Form,
                            'nb_elts_exp': len(export_form.EXPORT_OPTIONS),
                            'nb_elts_xslt': len(upload_xslt_Form.EXPORT_OPTIONS)})
-
         return HttpResponse(json.dumps({'template': template.render(context)}), content_type='application/javascript')
